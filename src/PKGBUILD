@@ -4,12 +4,12 @@
 
 pkgname=exodia-welcome
 pkgver=3.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Welcome app for Exodia OS"
 url="https://github.com/Exodia-OS/exodia-apps"
 arch=('any')
 license=('GPL3')
-depends=('python-pyqt5' 'python-pyqt5-chart' 'python-xlib')
+depends=('python-pyqt5' 'python-xlib')
 groups=('exodia-apps')
 conflicts=()
 provides=("${pkgname}")
