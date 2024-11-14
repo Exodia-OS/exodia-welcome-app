@@ -11,6 +11,15 @@ from PyQt5.QtCore import Qt, QPoint
 from PyQt5.QtGui import QPainter, QColor, QBrush, QRegion, QPolygon, QPen  # Corrected import for QPolygon
 from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QScrollArea
 
+
+def createContentWidget(html_content):
+    label = QLabel()
+    label.setTextFormat(Qt.RichText)  # Enable rich text format
+    label.setText(html_content)       # Set the HTML content
+    label.setWordWrap(True)           # Enable word wrap if needed
+    return label
+
+
 class InternalWindow(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -66,13 +75,6 @@ class InternalWindow(QWidget):
                 background: none;      /* Hide the add and subtract page areas */
             }
         """)
-
-    def createContentWidget(self, html_content):
-        label = QLabel()
-        label.setTextFormat(Qt.RichText)  # Enable rich text format
-        label.setText(html_content)       # Set the HTML content
-        label.setWordWrap(True)           # Enable word wrap if needed
-        return label
 
     def createCustomMask(self):
         # Define points for an 8-sided polygon

@@ -174,6 +174,10 @@ class ButtonContent:
         <div style="font-family: {}; color: #00B0C8; line-height: 1.6; font-size: 18px; max-width: 800px;">
                 
                 <h1 style="color: #00C8B0; font-size: 32px; margin-bottom: 15px;">Keybinding</h1>
+                
+                <p style="font-size: 20px">
+                    Keybinding refers to the practice of assigning keyboard shortcuts to various actions or commands within the window manager environment. These shortcuts allow users to perform tasks such as opening applications, switching between windows, resizing or moving windows, and executing specific commands, all without needing to use the mouse or navigate through menus.
+                </p>
         
                 <h2 align="center" >Bspwm</h2>
               

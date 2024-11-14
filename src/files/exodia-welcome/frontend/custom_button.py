@@ -28,6 +28,9 @@ class CustomButton(QPushButton):
 
         self.loadPredatorFont()
 
+        # Define an offset to move the text when the button is pressed
+        self.text_offset_x = 0
+
     def loadPredatorFont(self):
         font_path = os.path.join(os.path.dirname(__file__), '../Fonts', 'Squares-Bold.otf')
         font_id = QFontDatabase.addApplicationFont(font_path)
@@ -44,9 +47,11 @@ class CustomButton(QPushButton):
         if self.parent().currently_pressed_button == self:
             background_color = QColor("#00B0C8")
             text_color = QColor("white")
+            self.text_offset_x = 65 # Offset the text to the right when the button is pressed
         else:
             background_color = QColor(self.color)
             text_color = QColor("#acacac")
+            self.text_offset_x = 0  # Reset the text offset when not pressed
 
         painter.setBrush(background_color)
         painter.setPen(Qt.NoPen)
@@ -61,7 +66,10 @@ class CustomButton(QPushButton):
         painter.setPen(pen)
         if self.predator_font:
             painter.setFont(self.predator_font)
-        painter.drawText(self.rect(), Qt.AlignCenter, self.text())
+
+        # Use the offset to position the text within the button's shape
+        rect_with_offset = self.rect().adjusted(self.text_offset_x, 0, 0, 0)
+        painter.drawText(rect_with_offset, Qt.AlignCenter, self.text())
 
     def mousePressEvent(self, event):
         super().mousePressEvent(event)
